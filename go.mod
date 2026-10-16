@@ -38,6 +38,7 @@ require (
 	github.com/stretchr/testify v1.12.1
 	go.etcd.io/etcd/client/pkg/v3 v3.7.2
 	go.etcd.io/etcd/client/v3 v3.7.2
+	go.mongodb.org/mongo-driver/v2 v2.9.2
 	golang.org/x/crypto v0.57.0
 	golang.org/x/exp v0.0.0-20240823005443-9b4947da3948
 	golang.org/x/net v0.59.0
@@ -104,6 +105,7 @@ require (
 	github.com/jcmturner/gofork v1.7.6 // indirect
 	github.com/jcmturner/rpc/v2 v2.0.3 // indirect
 	github.com/jonboulle/clockwork v0.5.0 // indirect
+	github.com/klauspost/compress v1.19.2 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/mattn/go-runewidth v0.0.19 // indirect
@@ -126,6 +128,10 @@ require (
 	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/tinylib/msgp v1.6.4 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
+	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+	github.com/xdg-go/scram v1.2.0 // indirect
+	github.com/xdg-go/stringprep v1.0.4 // indirect
+	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	github.com/zclconf/go-cty v1.14.4 // indirect
 	github.com/zclconf/go-cty-yaml v1.1.0 // indirect
 	go.etcd.io/etcd/api/v3 v3.7.2 // indirect
