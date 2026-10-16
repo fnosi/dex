@@ -250,7 +250,7 @@ func authSessionExpiry(s storage.AuthSession) *time.Time {
 	}
 }
 
-func keyID(prefix, id string) string { return prefix + id }
+func keyID(prefix, id string) string       { return prefix + id }
 func keyEmail(prefix, email string) string { return prefix + strings.ToLower(email) }
 func keySession(userID, connID string) string {
 	return offlineSessionPrefix + strings.ToLower(userID+"|"+connID)
@@ -269,11 +269,21 @@ func (c *conn) GarbageCollect(ctx context.Context, now time.Time) (result storag
 		return r.DeletedCount, nil
 	}
 
-	if result.AuthRequests, err = deleteExpired(authRequestPrefix); err != nil { return result, err }
-	if result.AuthCodes, err = deleteExpired(authCodePrefix); err != nil { return result, err }
-	if result.DeviceRequests, err = deleteExpired(deviceRequestPrefix); err != nil { return result, err }
-	if result.DeviceTokens, err = deleteExpired(deviceTokenPrefix); err != nil { return result, err }
-	if result.AuthSessions, err = deleteExpired(authSessionPrefix); err != nil { return result, err }
+	if result.AuthRequests, err = deleteExpired(authRequestPrefix); err != nil {
+		return result, err
+	}
+	if result.AuthCodes, err = deleteExpired(authCodePrefix); err != nil {
+		return result, err
+	}
+	if result.DeviceRequests, err = deleteExpired(deviceRequestPrefix); err != nil {
+		return result, err
+	}
+	if result.DeviceTokens, err = deleteExpired(deviceTokenPrefix); err != nil {
+		return result, err
+	}
+	if result.AuthSessions, err = deleteExpired(authSessionPrefix); err != nil {
+		return result, err
+	}
 	return result, nil
 }
 
