@@ -24,6 +24,7 @@ import (
 	"github.com/dexidp/dex/storage/etcd"
 	"github.com/dexidp/dex/storage/kubernetes"
 	"github.com/dexidp/dex/storage/memory"
+	"github.com/dexidp/dex/storage/mongodb"
 	"github.com/dexidp/dex/storage/sql"
 )
 
@@ -406,6 +407,7 @@ var (
 	_ StorageConfig = (*etcd.Etcd)(nil)
 	_ StorageConfig = (*kubernetes.Config)(nil)
 	_ StorageConfig = (*memory.Config)(nil)
+	_ StorageConfig = (*mongodb.Config)(nil)
 	_ StorageConfig = (*sql.SQLite3)(nil)
 	_ StorageConfig = (*sql.Postgres)(nil)
 	_ StorageConfig = (*sql.MySQL)(nil)
@@ -448,6 +450,7 @@ var storages = map[string]func() StorageConfig{
 	"etcd":       func() StorageConfig { return new(etcd.Etcd) },
 	"kubernetes": func() StorageConfig { return new(kubernetes.Config) },
 	"memory":     func() StorageConfig { return new(memory.Config) },
+	"mongodb":    func() StorageConfig { return new(mongodb.Config) },
 	"sqlite3":    getORMBasedSQLStorage(func() StorageConfig { return new(sql.SQLite3) }, func() StorageConfig { return new(ent.SQLite3) }),
 	"postgres":   getORMBasedSQLStorage(func() StorageConfig { return new(sql.Postgres) }, func() StorageConfig { return new(ent.Postgres) }),
 	"mysql":      getORMBasedSQLStorage(func() StorageConfig { return new(sql.MySQL) }, func() StorageConfig { return new(ent.MySQL) }),
